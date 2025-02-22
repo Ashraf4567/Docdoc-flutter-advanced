@@ -4,14 +4,16 @@ import 'package:flutter_advanced/core/theming/styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-class GetStartButton extends StatelessWidget {
-  const GetStartButton({super.key});
+class DocButton extends StatelessWidget {
+  final String text;
+  final VoidCallback? onPressed;
+  const DocButton({super.key, required this.text, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {
-        context.push('/home');
+      onPressed: onPressed ?? () {
+        context.go('/login');
       },
       style: ButtonStyle(
           backgroundColor: WidgetStatePropertyAll(ColorsManager.mainBlue),
@@ -24,7 +26,7 @@ class GetStartButton extends StatelessWidget {
         )
       ),
       child: Text(
-        'Get Started',
+        text,
         style: TextStyles.font16WhiteSemiBold
             .copyWith(fontWeight: FontWeight.bold),
       ),
