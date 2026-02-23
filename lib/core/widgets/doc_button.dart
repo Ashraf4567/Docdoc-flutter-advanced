@@ -6,19 +6,16 @@ import 'package:go_router/go_router.dart';
 
 class DocButton extends StatelessWidget {
   final String text;
-  final VoidCallback? onPressed;
-  const DocButton({super.key, required this.text, this.onPressed});
+  final VoidCallback onPressed;
+  const DocButton({super.key, required this.text, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: onPressed ?? () {
-        context.go('/login');
-      },
+      onPressed: onPressed,
       style: ButtonStyle(
           backgroundColor: WidgetStatePropertyAll(ColorsManager.mainBlue),
-          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          minimumSize: WidgetStatePropertyAll(Size(double.infinity, 52)),
+          fixedSize: WidgetStatePropertyAll(Size(double.maxFinite, 52.h)),
         shape: WidgetStatePropertyAll(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16.r)
