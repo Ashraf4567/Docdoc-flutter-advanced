@@ -3,6 +3,7 @@ import 'package:flutter_advanced/core/theming/styles.dart';
 import 'package:flutter_advanced/core/widgets/doc_button.dart';
 import 'package:flutter_advanced/features/onboarding/widgets/logo_with_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import 'widgets/doc_image_with_text.dart';
 
@@ -32,6 +33,9 @@ class OnboardingScreen extends StatelessWidget {
                       SizedBox(height: 32.h,),
                       DocButton(
                         text: 'Get Started',
+                        onPressed: () {
+                          context.go('/login');
+                        },
                       ),
                     ],
                   ),
