@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced/doc_app.dart';
+import 'package:flutter_advanced/core/di/dependency_injection.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  setupGetIt();
   runApp(const DocApp());
 }
-
