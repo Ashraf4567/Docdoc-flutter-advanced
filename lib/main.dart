@@ -4,6 +4,6 @@ import 'package:flutter_advanced/core/di/dependency_injection.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  setupGetIt();
+  await setupGetIt();
   runApp(const DocApp());
 }
