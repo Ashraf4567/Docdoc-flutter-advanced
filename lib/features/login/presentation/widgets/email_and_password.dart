@@ -3,8 +3,8 @@ import 'package:flutter_advanced/core/helpers/app_regex.dart';
 import 'package:flutter_advanced/core/theming/colors.dart';
 import 'package:flutter_advanced/core/theming/spacing.dart';
 import 'package:flutter_advanced/core/widgets/app_text_input.dart';
+import 'package:flutter_advanced/core/widgets/password_validations.dart';
 import 'package:flutter_advanced/features/login/logic/cubit/login_cubit.dart';
-import 'package:flutter_advanced/features/login/presentation/widgets/password_validations.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EmailAndPassword extends StatefulWidget {

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced/core/navigation/go_router.dart';
-import 'package:flutter_advanced/core/theming/styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/theming/colors.dart';
