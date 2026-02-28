@@ -19,7 +19,7 @@ class SignupScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Ceate Account',
+                  'Create Account',
                   style: TextStyles.font24BlueBold,
                 ),
                 verticalSpace(8),
