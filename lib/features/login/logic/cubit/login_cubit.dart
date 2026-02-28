@@ -11,9 +11,12 @@ class LoginCubit extends Cubit<LoginState> {
   TextEditingController passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
-  void emitLoginStates(String email, String password) async {
+  void emitLoginStates() async {
     emit(LoginState.loading());
-    final response = await _loginRepo.login(email, password);
+    final response = await _loginRepo.login(
+      emailController.text,
+      passwordController.text,
+    );
     response.when(success: (loginResponse) {
       emit(LoginState.success(loginResponse));
     }, failure: (error) {
@@ -23,9 +26,6 @@ class LoginCubit extends Cubit<LoginState> {
 
   @override
   Future<void> close() {
-    // Dispose controllers here — the Cubit owns them, so it cleans them up.
-    // This is called automatically by BlocProvider when the Cubit leaves the tree.
-    // Same concept as ViewModel.onCleared() in Android.
     emailController.dispose();
     passwordController.dispose();
     return super.close();
