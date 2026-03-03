@@ -23,11 +23,6 @@ class SignupScreen extends StatelessWidget {
                   style: TextStyles.font24BlueBold,
                 ),
                 verticalSpace(8),
-                Text(
-                  'Sign up now and start exploring all that our app has to offer. We\'re excited to welcome you to our community!',
-                  style: TextStyles.font13GrayRegular,
-                ),
-                verticalSpace(36),
                 SignupForm(),
                 const SignupBlocListener(),
               ],
