@@ -11,7 +11,9 @@ import 'package:flutter_advanced/features/signup/ui/signup_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-final GoRouter goRouter = GoRouter(routes: [
+final GoRouter goRouter = GoRouter(
+  initialLocation: Routes.home,
+  routes: [
 
   GoRoute(
     path: Routes.onboarding,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_advanced/core/navigation/go_router.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -20,6 +21,12 @@ class DocApp extends StatelessWidget {
           theme: ThemeData(
               primaryColor: ColorsManager.mainBlue,
               scaffoldBackgroundColor: Colors.white,
+              appBarTheme: const AppBarTheme(
+                systemOverlayStyle: SystemUiOverlayStyle(
+                  statusBarColor: Colors.transparent,
+                  statusBarIconBrightness: Brightness.dark,
+                ),
+              ),
               inputDecorationTheme: InputDecorationTheme(
                   filled: true,
                   fillColor: Color(0xFFFBFBFD),
@@ -34,22 +41,17 @@ class DocApp extends StatelessWidget {
                       borderSide: BorderSide(
                         color: ColorsManager.mainBlue,
                         width: 1.3.w,
-                      )
-                  ),
+                      )),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(16.r),
                       borderSide: BorderSide(
                         width: 1.3.w,
                         color: Color(0xFFEDEDED),
-                      )
-                  )
-              ),
+                      ))),
               useMaterial3: true,
-              fontFamily: 'Inter'
-          ),
+              fontFamily: 'Inter'),
         );
       },
-
     );
   }
 }
