@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_advanced/core/networking/api_constants.dart';
+import 'package:flutter_advanced/features/home/data/models/home_page_response.dart';
 import 'package:flutter_advanced/features/login/data/models/login_request_body.dart';
 import 'package:flutter_advanced/features/login/data/models/login_response.dart';
 import 'package:flutter_advanced/features/signup/data/models/signup_request_body.dart';
@@ -21,4 +22,7 @@ abstract class ApiService {
   Future<SignupResponse> signup(
     @Body() SignupRequestBody requestBody,
   );
+
+  @GET(ApiConstants.home)
+  Future<HomePageResponse> getHomePageData();
 }
