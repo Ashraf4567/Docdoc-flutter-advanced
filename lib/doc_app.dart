@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_advanced/core/navigation/go_router.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'core/navigation/routes.dart';
 import 'core/theming/colors.dart';
 
 class DocApp extends StatelessWidget {
@@ -15,7 +16,7 @@ class DocApp extends StatelessWidget {
       minTextAdapt: true,
       builder: (context, child) {
         return MaterialApp.router(
-          routerConfig: goRouter,
+          routerConfig: goRouter(Routes.home),
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: ThemeData(

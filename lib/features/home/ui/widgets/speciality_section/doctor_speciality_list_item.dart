@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced/core/theming/colors.dart';
 import 'package:flutter_advanced/core/theming/styles.dart';
+import 'package:flutter_advanced/features/home/data/models/specialization_doctors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class DoctorSpecialityListItem extends StatelessWidget {
-  const DoctorSpecialityListItem({super.key});
+  final SpecializationDoctors specialization;
+  const DoctorSpecialityListItem({super.key, required this.specialization});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class DoctorSpecialityListItem extends StatelessWidget {
           ),
         ),
         Text(
-          'Dentist',
+          specialization.name,
           style: TextStyles.font12BlueRegular.copyWith(color: Colors.black),
         )
       ],

@@ -10,7 +10,7 @@ class SpecializationDoctors {
   final List<DoctorModel> doctors;
 
   const SpecializationDoctors({required this.id, required this.name, required this.doctors});
-
+ 
   factory SpecializationDoctors.fromJson(Map<String, dynamic> json) =>
       _$SpecializationDoctorsFromJson(json);
 

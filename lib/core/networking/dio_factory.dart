@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_advanced/core/networking/auth_interceptor.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class DioFactory {
@@ -7,21 +8,24 @@ class DioFactory {
 
   static Dio? dio;
 
-  static Dio getDio() {
+  static Dio getDio(
+    AuthInterceptor authInterceptor,
+  ) {
     Duration connectTimeout = const Duration(seconds: 30);
 
     if (dio == null) {
       dio = Dio();
       dio?.options.connectTimeout = connectTimeout;
       dio?.options.receiveTimeout = connectTimeout;
-      addDioInterceptior();
+      addDioInterceptior(authInterceptor);
       return dio!;
     }
     return dio!;
   }
 
-  static void addDioInterceptior() {
-    dio?.interceptors.add(PrettyDioLogger(
+  static void addDioInterceptior(AuthInterceptor authInterceptor) {
+    dio!.interceptors.add(authInterceptor);
+    dio!.interceptors.add(PrettyDioLogger(
         requestHeader: true,
         requestBody: true,
         responseBody: true,

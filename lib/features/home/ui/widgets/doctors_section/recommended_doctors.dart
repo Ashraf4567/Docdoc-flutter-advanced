@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_advanced/core/theming/colors.dart';
 import 'package:flutter_advanced/core/theming/spacing.dart';
 import 'package:flutter_advanced/core/theming/styles.dart';
-import 'package:flutter_advanced/features/home/presentation/widgets/doctors_section/doctors_list.dart';
+import 'package:flutter_advanced/features/home/data/models/doctor_model.dart';
+import 'package:flutter_advanced/features/home/ui/widgets/doctors_section/doctors_list.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RecommendedDoctors extends StatelessWidget {
-  const RecommendedDoctors({super.key});
+  final List<DoctorModel> doctors;
+  const RecommendedDoctors({super.key, required this.doctors});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,7 @@ class RecommendedDoctors extends StatelessWidget {
       children: [
         _buildRecommendedDoctorsHeaderSection(),
         verticalSpace(16),
-        Expanded(child: DoctorsList())
+        Expanded(child: DoctorsList(doctors: doctors))
       ],
     );
   }

@@ -4,21 +4,21 @@ import 'package:json_annotation/json_annotation.dart';
 part 'home_page_response.g.dart';
 
 @JsonSerializable()
-class HomePageResponse {
+class HomePageDoctorsResponse {
   final String message;
   final List<SpecializationDoctors> data;
   final bool status;
   final int code;
 
-  const HomePageResponse({
+  const HomePageDoctorsResponse({
     required this.message,
     required this.data,
     required this.status,
     required this.code,
   });
 
-  factory HomePageResponse.fromJson(Map<String, dynamic> json) =>
-      _$HomePageResponseFromJson(json);
+  factory HomePageDoctorsResponse.fromJson(Map<String, dynamic> json) =>
+      _$HomePageDoctorsResponseFromJson(json);
 
-  Map<String, dynamic> toJson() => _$HomePageResponseToJson(this);
+  Map<String, dynamic> toJson() => _$HomePageDoctorsResponseToJson(this);
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_advanced/core/storage/secure_storage.dart';
 import 'package:flutter_advanced/features/signup/data/models/signup_request_body.dart';
 import 'package:flutter_advanced/features/signup/data/repo/signup_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,6 +8,7 @@ import 'signup_state.dart';
 
 class SignupCubit extends Cubit<SignupState> {
   final SignupRepo _signupRepo;
+  final ISecureStorage _secureStorage;
 
   final formKey = GlobalKey<FormState>();
   TextEditingController nameController = TextEditingController();
@@ -18,7 +20,7 @@ class SignupCubit extends Cubit<SignupState> {
 
   Gender selectedGender = Gender.male;
 
-  SignupCubit(this._signupRepo) : super(SignupState.initial());
+  SignupCubit(this._signupRepo, this._secureStorage) : super(SignupState.initial());
 
   Future<void> emitSignupStates() async {
     emit(SignupState.loading());
@@ -31,7 +33,13 @@ class SignupCubit extends Cubit<SignupState> {
       selectedGender,
     );
     result.when(
-        success: (success) => emit(SignupState.success(success)),
+        success: (success) {
+          final token = success.userData?.token;
+          if (token != null) {
+            _secureStorage.saveToken(token);
+          }
+          emit(SignupState.success(success));
+        },
         failure: (failure) =>
             emit(SignupState.error(failure.apiErrorModel.message ?? '')));
   }
